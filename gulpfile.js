@@ -29,4 +29,5 @@ gulp.task('apidoc', function(done){
    }, done);
 });
 
-gulp.task('default', ['lint', 'mocha', 'apidoc']);
+gulp.task('default', ['lint', 'apidoc']);
+/**gulp.task('default', ['lint', 'mocha', 'apidoc']);**/
