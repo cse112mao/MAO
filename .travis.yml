@@ -5,5 +5,9 @@ node_js:
 
 before_script:
   - npm install -g gulp
+  - npm install express-generator -g
+  - npm install --save mocha
+  - npm install --global gulp-cli
+  - npm install --save gulp gulp-apidoc jshint gulp-jshint gulp-mocha
 
 script: gulp

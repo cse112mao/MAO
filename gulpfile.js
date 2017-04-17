@@ -13,12 +13,12 @@ gulp.task('lint', function () {
 
 /**
 * Run Mocha Tests
-*
+**/
 gulp.task('mocha', () =>
    gulp.src('test/test.js', {read: false})
       .pipe(mocha({reporter: 'nyan'}))
 );
-*/
+
 /**
 * Run documentation generator
 */
@@ -29,5 +29,4 @@ gulp.task('apidoc', function(done){
    }, done);
 });
 
-gulp.task('default', ['lint', 'apidoc']);
-/**gulp.task('default', ['lint', 'mocha', 'apidoc']);**/
+gulp.task('default', ['lint', 'mocha', 'apidoc']);
