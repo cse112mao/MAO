@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var hello = require('./routes/hello');
-var hw1 = require('hw1.js');
+//var hw1 = require('hw1.js');
 
 var app = express();
 
@@ -45,5 +45,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//listen for button click
+app.post('/click',function (req, res) {
+    console.log('works');
+})
 
 module.exports = app;
