@@ -18,3 +18,69 @@ STYLE GUIDELINE::
 - TYPE OF VARIABLE SHOULD BE FIRST WORD IN THE VARIABLE NAME e.g String asdf = def strAsdf
 - FUNCTION HEADERS ON EVERY FUNCTION - INCLUDE PARAMETERS, USE, AND RETURN 
 - FILE HEADERS ON EVERY FILE - SHORT PARAGRAPH EXPLAINING UTILITY OF FILE
+
+
+
+Function Header Example (Please follow this as closely as you can)
+
+/**
+* Function Name:
+* Function Path (example... user/id or document/testing):
+* Function Description (short sentence or two):
+* Function Type (GET, POST, etc): 
+* Group (who is calling this function? the user? the dev? admin?):
+* 
+* Function Paramter:
+*	Type (boolean/number/etc) - Name (name of param) : Description (short description on what the param is)
+*	Type .... (continue here if there are more params)
+*
+* Return (I'm assuming we are returning information back in a JSON format, so Name is the field name for the returned json):
+*	OnSuccess [Optional, put what the status code is, for example 200](What is returned on success? List all):
+*		Type (string/object/array/etc) - Name (id of returned value) : Description (short description on what the valued returned is)
+*		Type ... (continue here if there are more ids returned)
+*
+*   OnFailure [Optional, put what the status code is, for example 404](What is returned on failure? List all):
+*		Type (string/object/array/etc) - Name (id of returned value) : Description (short description on what the valued returned is) == [if id is meant to be an error string, put what the error message is here]
+*		Type ... (continue here if there are more ids returned)
+*
+* Example Usage:
+*	Provide a simple example on how to use this function
+*
+* Example Response:
+*	Provide a sample of a response, either success or failure
+*/
+
+Example using the above format
+
+/**
+* Function Name: getUser
+* Function Path: /user/:id
+* Function Description: Read user's data
+* Function Type: GET
+* Group: admin
+* 
+* Function Paramter:
+*	String - id : user's id to read
+*
+* Return:
+*	OnSuccess 200:
+*		String - name : name of the user
+*		Number - age : age of the user
+*		Object - profile : object containing information about the user's profile
+*			String - image : image of of user's profile (this is a field of profile)
+*		String[] - nicknames : list of nicknames the user goes by
+*
+*   OnFailure 401:
+*		String - error: Only admins can access this data == NoAccessRight
+*
+* Example Usage:
+*	curl -i http://localhost/user/4711
+*
+* Example Response:
+*	HTTP/1.1 401 Not Authenticated
+*    {
+*      "error": "NoAccessRight"
+*    }
+*/
+
+If you have more information to add inside your method header, please add them in a way so that just by reading it, the user would know what it is and how to use it and what is the significance of it.
