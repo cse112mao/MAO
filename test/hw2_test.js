@@ -59,12 +59,8 @@ describe('hw2_test.js', function() {
       var time = hw2_test.isValidTime('23:59:59', true);
       assert.equal(true, time);
     });
-    it("should return true when strInputTime = '01:01:01' and boolInputSeconds = true", function() {
-      var time = hw2_test.isValidTime('01:01:01', true);
-      assert.equal(true, time);
-    });
-    it("should return true when strInputTime = '01:00:00' and boolInputSeconds = true", function() {
-      var time = hw2_test.isValidTime('01:00:00', true);
+    it("should return true when strInputTime = '00:00:00' and boolInputSeconds = true", function() {
+      var time = hw2_test.isValidTime('00:00:00', true);
       assert.equal(true, time);
     });
   });
