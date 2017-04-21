@@ -15,7 +15,7 @@ gulp.task('lint', function () {
 * Run Mocha Tests
 **/
 gulp.task('mocha', () =>
-   gulp.src('test/test.js', {read: false})
+   gulp.src('test/*.js', {read: false})
       .pipe(mocha({reporter: 'nyan'}))
 );
 
