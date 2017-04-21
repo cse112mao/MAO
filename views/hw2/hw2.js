@@ -1,3 +1,20 @@
+
+/*
+  Function Name: formatTime 
+  Group: dev
+
+  Function Description: helper method to split the input string into an array of the desired 
+  format. If the input boolean is true, then we assume that the input time will include seconds, 
+  and will be in the form HH:MM:SS. Else, it will be in the form HH:MM
+
+  Function Paramter:
+  String - strInputTime: input string to parse
+  bool - boolInputSeconds: boolean to see if we include seconds or not. 
+
+  Return: 
+  OnSuccess: returns the parsed array to be used 
+  OnFailure: returns null
+*/
 function formatTime(strInputTime, boolInputSeconds) {
   // split the string by hours, minute, seconds
   var arrTime = strInputTime.split(":");
@@ -11,6 +28,23 @@ function formatTime(strInputTime, boolInputSeconds) {
   return null;
 }
 
+/*
+  Function Name: isValidTime 
+  Group: dev
+
+  Function Description: checks if input string is in the correct time form. If the input boolean 
+  is true, then we expect that the input time will include seconds, and will be in the form 
+  HH:MM:SS. Else, it will be in the form HH:MM. 
+
+  Function Paramter:
+  String - strInputTime: input string to parse
+  bool - boolInputSeconds: boolean to see if we include seconds or not. 
+
+  Return: 
+  OnSuccess: returns true 
+  OnFailure: returns false
+  OnError: returns false 
+*/
 function isValidTime(strInputTime, boolInputSeconds) {
   // store the formatted input
   var arrTime = formatTime(strInputTime);
@@ -20,7 +54,7 @@ function isValidTime(strInputTime, boolInputSeconds) {
   {
     return false;
   }
-    
+
   var numHours = arrTime[0];
   // verify input is a number
   if (isNaN(numHours)) {
