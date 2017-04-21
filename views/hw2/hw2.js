@@ -61,7 +61,7 @@ var isValidTime = function isValidTime(strInputTime, boolInputSeconds) {
     return false;
   }
   // check if the hours are between [0, 23]
-  if (arrTime[0] < 0 || arrTime[0] > 24) {
+  if (arrTime[0] < 0 || arrTime[0] >= 24) {
     return false;
   }
 
