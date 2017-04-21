@@ -47,7 +47,7 @@ var formatTime = function formatTime(strInputTime, boolInputSeconds) {
 */
 var isValidTime = function isValidTime(strInputTime, boolInputSeconds) {
   // store the formatted input
-  var arrTime = formatTime(strInputTime);
+  var arrTime = formatTime(strInputTime, true);
 
   // check to see if input was incorrect
   if (arrTime === null)
