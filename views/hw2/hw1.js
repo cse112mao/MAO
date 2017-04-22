@@ -1,4 +1,6 @@
-module.exports = function foo(bar)
+var foo = function foo(bar)
 {
   return (bar === "baz");
 };
+
+exports.foo = foo;
