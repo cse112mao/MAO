@@ -90,5 +90,7 @@ var isValidTime = function isValidTime(strInputTime, boolInputSeconds) {
   return true;
 }
 
-exports.formatTime = formatTime;
-exports.isValidTime = isValidTime;
+if (typeof exports !== 'undefined') {
+  exports.formatTime = formatTime;
+  exports.isValidTime = isValidTime;
+}
