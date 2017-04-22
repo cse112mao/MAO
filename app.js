@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var hello = require('./routes/hello');
+var hw2 = require('./views/hw2/hw2');
 //var hw1 = require('hw1.js');
 
 var app = express();
@@ -23,6 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('views'));
 
 app.use('/', index);
 app.use('/users', users);
