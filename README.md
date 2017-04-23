@@ -7,6 +7,34 @@ To get this working on your local machine, do the following steps:
 2. In the root directory of your repo, run "npm install"
 
 
+Usage for formatTime() and isValidTime():
+
+Go to maoproj.herokuapp.com.
+Choose the slider for whether you wish to input a time with seconds or 
+not. Slider in the left position means no seconds are allowed, while 
+slider in the right position means seconds must be inputted. 
+
+A valid time input with seconds is in the format XX:XX:XX where X must be 
+a valid number, and the two hours digits on the left must be > 0 and < 
+24, and the two minutes digits in the middle as well as the two seconds
+digits on the right must be > 0 and < 60.
+
+A valid time input without seconds is in the format XX:XX, with the same
+rules for hours and minutes as above.
+
+After selecting the slider and inputting a time string to be checked,
+click the "Validate" button, which will call the function formatTime() 
+with the boolean value of whether seconds are included. After the format
+is set, formatTime() will call isValidTime() with the string user input as
+the parameter.
+
+After pressing the "Validate" button, whether the input string is a valid
+time according to the formats specified above will appear in a string
+notification just below the button.
+
+
+
+
 STYLE GUIDELINE::
 
 - TABS ARE 2 SPACES
