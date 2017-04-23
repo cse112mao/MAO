@@ -1,11 +1,6 @@
 # MAO
 CSE 112 Project
 
-To get this working on your local machine, do the following steps:
-
-1. Clone this repo
-2. In the root directory of your repo, run "npm install"
-
 
 Usage for formatTime() and isValidTime():
 
@@ -31,8 +26,15 @@ the parameter.
 After pressing the "Validate" button, whether the input string is a valid
 time according to the formats specified above will appear in a string
 notification just below the button.
+ 
+ 
+ 
+ 
+ 
+To get this working on your local machine, do the following steps:
 
-
+1. Clone this repo
+2. In the root directory of your repo, run "npm install"
 
 
 STYLE GUIDELINE::
