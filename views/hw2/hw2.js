@@ -15,6 +15,23 @@
   OnSuccess: returns the parsed array to be used
   OnFailure: returns null
 */
+
+/**
+ *	@api {get} /example Split the time inputted by the user
+ *	@apiName GetTime
+ *	@apiGroup HW2
+ *	
+ *	@apiDescription helper method to split the input string into an array of the desired
+ *  format. If the input boolean is true, then we assume that the input time will include seconds,
+ *  and will be in the form HH:MM:SS. Else, it will be in the form HH:MM
+ *
+ *	@apiParam {String} strInputTime Input string to parse
+ *  @apiParam {Boolean} boolInputSeconds Check if we include seconds or not
+ *
+ *	@apiSuccess {String[]} timeArray Array containing time in string
+ *
+ * 	@apiError IncorrectFormat The inputted format is incorrect
+ */
 var formatTime = function formatTime(strInputTime, boolInputSeconds) {
   // split the string by hours, minute, seconds
   var arrTime = strInputTime.split(":");
@@ -45,6 +62,23 @@ var formatTime = function formatTime(strInputTime, boolInputSeconds) {
   OnFailure: returns false
   OnError: returns false
 */
+
+/**
+ *	@api {get} /example2 Check if the format is correct based on user settings
+ *	@apiName GetValidTime
+ * 	@apiGroup HW2
+ *
+ *	@apiDescription checks if input string is in the correct time form. If the input boolean
+ *  is true, then we expect that the input time will include seconds, and will be in the form
+ *  HH:MM:SS. Else, it will be in the form HH:MM.
+ *
+ *	@apiParam {String} strInputTime Input string to parse
+ *	@apiParam {Boolean} boolInputSeconds Check if we include seconds or not
+ *
+ *	@apiSuccess {Boolean} isValid Boolean that determines if the time is valid or not
+ *
+ *	@apiError IncorrectFormat The inputted format is incorrect
+ */
 var isValidTime = function isValidTime(strInputTime, boolInputSeconds) {
   // store the formatted input
   var arrTime = formatTime(strInputTime, boolInputSeconds);

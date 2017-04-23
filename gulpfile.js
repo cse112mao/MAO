@@ -24,7 +24,7 @@ gulp.task('mocha', () =>
 */
 gulp.task('apidoc', function(done){
    apidoc({
-      src: "routes/",
+      src: "views/hw2/",
       dest: "doc/"
    }, done);
 });
