@@ -70,6 +70,14 @@
     return null;
   }
 
+  for (var i = 0; i < arrTime.length; i++) {
+    if (!(typeof arrTime[i] === undefined)) {
+      if (arrTime[i].length != 2) {
+        return null;
+      }
+    }
+  }
+
   // if (!(typeof arrTime[0] === undefined)) {
   //   console.log("Hours: " + arrTime[0] + " , length: " + arrTime[0].length);
   //   if (arrTime[0].length != 2) {
