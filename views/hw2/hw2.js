@@ -35,9 +35,9 @@
  var formatTime = function formatTime(strInputTime, boolInputSeconds, boolInput24Hour) {
   var strTempInputTime = strInputTime;
 
+  var arrAmPm = strInputTime.split(/ +/);
   if(!boolInput24Hour){
     //extract AMPM
-    var arrAmPm = strInputTime.split(/ +/);
     if(arrAmPm.length != 2 && arrAmPm.length != 3){
       return null;
     }
@@ -50,6 +50,15 @@
     } 
     strTempInputTime = arrAmPm[0];
 
+  }
+  else{
+    //not 24 hour, check if contains ampm
+    if(arrAmPm.length>=3){
+      return null;
+    }
+    if(arrAmPm.length==2 && arrAmPm[1] != ""){
+      return null;
+    }
   }
   // split the string by hours, minute, seconds
   var arrTime = strTempInputTime.split(":");
