@@ -12,7 +12,7 @@ describe('hw2_test.js', function() {
   	 */
     it("should return ['22','22'] when strInputTime = '22:22' and boolInputSeconds = false", function() {
       var time = hw2_test.formatTime('22:22', false, true);
-      var expected_time = ['22','22 PM'];
+      var expected_time = ['22','22'];
       assert.deepEqual(expected_time, time);
     });
     
@@ -59,15 +59,15 @@ describe('hw2_test.js', function() {
     /*
      * 12 Hour tests
      */
-    it("Expects: ['22','22 PM'] from formatTime('22:22 PM', false, false)", function() {
+    it("Expects: ['22','22'] from formatTime('22:22 PM', false, false)", function() {
       var time = hw2_test.formatTime('22:22 PM', false, false);
-      var expected_time = ['22','22 PM'];
+      var expected_time = ['22','22'];
       assert.deepEqual(expected_time, time);
     });
 
-	it("Expects: ['22','22','22 PM'] from formatTime('22:22:22 PM', true, false)", function() {
+	it("Expects: ['22','22','22'] from formatTime('22:22:22 PM', true, false)", function() {
       var time = hw2_test.formatTime('22:22:22 PM', true, false);
-      var expected_time = ['22','22','22 PM'];
+      var expected_time = ['22','22','22'];
       assert.deepEqual(expected_time, time);
     });
 
