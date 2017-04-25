@@ -7,6 +7,7 @@
     border: 2px solid #27a4c7;
     border-radius: 10px;
     background-color: rgba(5,58,89,0.6);
+    color:white;
     width: 500px;
   }
 
@@ -121,18 +122,20 @@
     uses the valid format.
     <br>
     <br>
-    Format Guidelines:
+    <h2>Format Guidelines:</h2>
+    <b>Without Seconds:</b> HH:MM | Example: <i>9:42</i>
     <br>
-    Without Seconds: HH:MM | Example: <i>9:42</i>
+    <b>With Seconds:</b> HH:MM:SS | Example: <i>9:42:24</i>
     <br>
-    With Seconds: HH:MM:SS | Example: <i>9:42:24</i>
+    <br>
+    <b>12 Hour:</b> HH:MM:SS AM/PM or HH:MM AM/PM  <i>(HH is in [00, 12])</i>| Examples: <i>9:42:24 AM, 9:42 PM</i>
+    <br>
+    <b>24 Hour:</b> HH:MM:SS or HH:MM <i>(HH is in [00, 23])</i>| Examples: <i>21:42:24, 17:32</i>
     <br>
     <br>
 
     <fieldset>
-      <strong>Super Time Validator</strong>
-      <br>
-      <br>
+      <h3><strong>Super Time Validator</strong></h3>
 	    Include seconds?
 	    <label class="switch">
 		    <input type="checkbox" id="inputSeconds">
