@@ -157,11 +157,11 @@ describe('hw2_test.js', function() {
 
     it("should return false when strInputTime = '11:59:59 Pm and boolInputSeconds = true", function() {
       var time = hw2_test.isValidTime('11:59:59 Pm', true, false);
-      assert.equal(false, time);
+      assert.equal(true, time);
     });
 
     it("should return false when strInputTime = '0000011:59:59 PM' and boolInputSeconds = true", function() {
-      var time = hw2_test.isValidTime('11:59:59 PM', true, false);
+      var time = hw2_test.isValidTime('0000011:59:59 PM', true, false);
       assert.equal(false, time);
     });
 

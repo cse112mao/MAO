@@ -65,31 +65,19 @@
   // split the string by hours, minute, seconds
   var arrTime = strTempInputTime.split(":");
   
-  // no minutes were provided
+  // no minutes were provided, return null
   if (arrTime[1] === undefined) {
     return null;
   }
 
-  // if (!(typeof arrTime[0] === undefined)) {
-  //   console.log("Hours: " + arrTime[0] + " , length: " + arrTime[0].length);
-  //   if (arrTime[0].length != 2) {
-  //     return null;
-  //   }
-  // }
-  
-  // if (!(typeof arrTime[1] === undefined)) {
-  //   console.log("Minutes: " + arrTime[1] + " , length: " + arrTime[1].length);
-  //   if (arrTime[1].length != 2) {
-  //     return null;
-  //   }
-  // }
-  
-  // if (!(typeof arrTime[2] === undefined)) {
-  //   console.log("Seconds: " + arrTime[2] + " , length: " + arrTime[2].length);
-  //   if (arrTime[2].length != 2) {
-  //     return null;
-  //   }
-  // }
+  // the size of the numbers were not equal to 2
+  for (var i = 0; i < arrTime.length; i++) {
+    if (!(typeof arrTime[i] === undefined)) {
+      if (arrTime[i].length != 2) {
+        return null;
+      }
+    }
+  }
 
   // check if there are hours, minutes, and seconds
   if ( (boolInputSeconds && arrTime.length === 3) || (!boolInputSeconds && arrTime.length === 2) )
