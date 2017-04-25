@@ -10,6 +10,7 @@
   Function Paramter:
   String - strInputTime: input string to parse
   bool - boolInputSeconds: boolean to see if we include seconds or not.
+  bool - boolInput24Hour: boolean to see if the user wants the format in 24 hours or not
 
   Return:
   OnSuccess: returns the parsed array to be used
@@ -17,7 +18,7 @@
   */
 
 /**
- *	@api {get} /example Split the time inputted by the user
+ *	@api {get} /formatTime/:strInputTime/:boolInputSeconds/:boolInput24Hour Split the time inputted by the user
  *	@apiName GetTime
  *	@apiGroup HW2
  *	
@@ -27,6 +28,7 @@
  *
  *	@apiParam {String} strInputTime Input string to parse
  *  @apiParam {Boolean} boolInputSeconds Check if we include seconds or not
+ *  @apiParam {Boolean} boolInput24Hour Check if we want the format in 24 hours or not
  *
  *	@apiSuccess {String[]} timeArray Array containing time in string
  *
@@ -74,6 +76,7 @@
   Function Paramter:
   String - strInputTime: input string to parse
   bool - boolInputSeconds: boolean to see if we include seconds or not.
+  bool - boolInput24Hour: boolean to see if the user wants the format in 24 hours or not
 
   Return:
   OnSuccess: returns true
@@ -82,7 +85,7 @@
   */
 
 /**
- *	@api {get} /example2 Check if the format is correct based on user settings
+ *	@api {get} /isValidTime/:strInputTime/:boolInputSeconds/:boolInput24Hour Check if the format is correct based on user settings
  *	@apiName GetValidTime
  * 	@apiGroup HW2
  *
@@ -92,6 +95,7 @@
  *
  *	@apiParam {String} strInputTime Input string to parse
  *	@apiParam {Boolean} boolInputSeconds Check if we include seconds or not
+ *  @apiParam {Boolean} boolInput24Hour Check if we want the format in 24 hours or not
  *
  *	@apiSuccess {Boolean} isValid Boolean that determines if the time is valid or not
  *
