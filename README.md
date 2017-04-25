@@ -5,9 +5,11 @@ CSE 112 Project
 Usage for formatTime() and isValidTime():
 
 Go to maoproj.herokuapp.com.
-Choose the slider for whether you wish to input a time with seconds or 
-not. Slider in the left position means no seconds are allowed, while 
-slider in the right position means seconds must be inputted. 
+Choose the sliders for whether you wish to input a time with seconds or 
+not and whether you want to input a military time (24 hours) or a regular
+AM/PM (12 hours) time. Sliders in the left position means no seconds are 
+allowed and 24 hour format , while sliders in the right position means 
+seconds must be inputted and 12 hour format. 
 
 A valid time input with seconds is in the format XX:XX:XX where X must be 
 a valid number, and the two hours digits on the left must be > 0 and < 
@@ -17,11 +19,15 @@ digits on the right must be > 0 and < 60.
 A valid time input without seconds is in the format XX:XX, with the same
 rules for hours and minutes as above.
 
+A valid time input in the 12 hour format must not have hours digits
+XX > 12, and must specify AM/PM after the XX:XX(:XX) separated by a space
+between the numbers and the AM/PM.
+
 After selecting the slider and inputting a time string to be checked,
 click the "Validate" button, which will call the function formatTime() 
-with the boolean value of whether seconds are included. After the format
-is set, formatTime() will call isValidTime() with the string user input as
-the parameter.
+with the boolean value of whether seconds are included and whether
+the 24 hour or 12 hour format is used. After the format is set, formatTime() 
+will call isValidTime() with the string user input as the parameter.
 
 After pressing the "Validate" button, whether the input string is a valid
 time according to the formats specified above will appear in a string
