@@ -1,71 +1,71 @@
 /**
- * Unit tests for hw2.js
- */
+* Unit tests for hw2.js
+*/
 
 var assert = require('assert');
 var hw2_test = require("../views/hw2/hw2.js");
 
 describe('hw2_test.js', function() {
-  describe('#formatTime(strInputTime, boolInputSeconds)', function() {
-  	/*
-  	 * 24 hour tests
-  	 */
-    it("should return ['22','22'] when strInputTime = '22:22' and boolInputSeconds = false", function() {
+  describe('#formatTime(strInputTime, boolInputSeconds, boolInput24Hour)', function() {
+    /*
+    * 24 hour testss
+    */
+    it("Expects: ['22','22'] from formatTime('22:22', false, true)", function() {
       var time = hw2_test.formatTime('22:22', false, true);
       var expected_time = ['22','22'];
       assert.deepEqual(expected_time, time);
     });
-    
-    it("should return ['22','22','22'] when strInputTime = '22:22:22' and boolInputSeconds = true", function() {
+
+    it("Expects: ['22','22','22'] from formatTime('22:22:22', true, true)", function() {
       var time = hw2_test.formatTime('22:22:22', true, true);
       var expected_time = ['22','22','22'];
       assert.deepEqual(expected_time, time);
     });
-    
-    it("should return null when strInputTime = '22' and boolInputSeconds = false", function() {
+
+    it("Expects: null from formatTime('22', false, true)", function() {
       var time = hw2_test.formatTime('22', false, true);
       assert.equal(null, time);
     });
-    
-    it("should return null when strInputTime = '22:22:22' and boolInputSeconds = false", function() {
+
+    it("Expects: null from formatTime('22:22:22', false, true)", function() {
       var time = hw2_test.formatTime('22:22:22', false, true);
       assert.equal(null, time);
     });
-    
-    it("Expects: null when strInputTime = '22:22 PM' and boolInput24Hours = true", function() {
+
+    it("Expects: null from formatTime('22:22 PM', false, true)", function() {
       var time = hw2_test.formatTime('22:22 PM', false, true);
       var expected_time = null;
       assert.deepEqual(expected_time, time);
     });
 
-	it("Expects: null from formatTime('22:22:22 PM', true, true)", function() {
+    it("Expects: null from formatTime('22:22:22 PM', true, true)", function() {
       var time = hw2_test.formatTime('22:22:22 PM', true, true);
       var expected_time = null;
       assert.deepEqual(expected_time, time);
     });
 
-	it("Expects: null from formatTime('22:2d', false, true)", function() {
+    it("Expects: null from formatTime('22:2d', false, true)", function() {
       var time = hw2_test.formatTime('22:2d', true, true);
       var expected_time = null;
       assert.deepEqual(expected_time, time);
     });
 
-	it("Expects: null from formatTime('2s:22', false, true)", function() {
+    it("Expects: null from formatTime('2s:22', false, true)", function() {
       var time = hw2_test.formatTime('22:2d', true, true);
       var expected_time = null;
       assert.deepEqual(expected_time, time);
     });
 
     /*
-     * 12 Hour tests
-     */
+    * 12 Hour tests
+    */
     it("Expects: ['22','22'] from formatTime('22:22 PM', false, false)", function() {
       var time = hw2_test.formatTime('22:22 PM', false, false);
       var expected_time = ['22','22'];
       assert.deepEqual(expected_time, time);
     });
 
-	it("Expects: ['22','22','22'] from formatTime('22:22:22 PM', true, false)", function() {
+    it("Expects: ['22','22','22'] from formatTime('22:22:22 PM', true, false)", function() {
       var time = hw2_test.formatTime('22:22:22 PM', true, false);
       var expected_time = ['22','22','22'];
       assert.deepEqual(expected_time, time);
@@ -74,9 +74,9 @@ describe('hw2_test.js', function() {
 
   });
   describe('#isValidTime(strInputTime, boolInputSeconds)', function() {
-  	/*
-  	 * 24 hour tests
-  	 */
+    /*
+    * 24 hour tests
+    */
     it("should return false when strInputTime = '22' and boolInputSeconds = false", function() {
       var time = hw2_test.isValidTime('22', false, true);
       assert.equal(false, time);
@@ -133,8 +133,8 @@ describe('hw2_test.js', function() {
     });
 
     /*
-     * 12 hour tests
-     */
+    * 12 hour tests
+    */
     it("should return false when strInputTime = '23:59:59 PM' and boolInputSeconds = true", function() {
       var time = hw2_test.isValidTime('23:59:59 PM', true, false);
       assert.equal(false, time);
@@ -145,7 +145,7 @@ describe('hw2_test.js', function() {
       assert.equal(false, time);
     });
 
-    it("should return true when strInputTime = '11:59:59 PM' and boolInputSeconds = true", function() {
+    it("should return true when strInputTime = '11:59:59 PM' and bo for olInputSeconds = true", function() {
       var time = hw2_test.isValidTime('11:59:59 PM', true, false);
       assert.equal(true, time);
     });
