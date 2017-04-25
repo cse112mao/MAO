@@ -1,7 +1,7 @@
 [
   {
     "type": "get",
-    "url": "/foo",
+    "url": "/foo/:bar",
     "title": "Testing Foo",
     "name": "GetFoo",
     "group": "HW1",
@@ -38,7 +38,7 @@
   },
   {
     "type": "get",
-    "url": "/example",
+    "url": "/formatTime/:strInputTime/:boolInputSeconds/:boolInput24Hour",
     "title": "Split the time inputted by the user",
     "name": "GetTime",
     "group": "HW2",
@@ -59,6 +59,13 @@
             "optional": false,
             "field": "boolInputSeconds",
             "description": "<p>Check if we include seconds or not</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "boolInput24Hour",
+            "description": "<p>Check if we want the format in 24 hours or not</p>"
           }
         ]
       }
@@ -94,7 +101,7 @@
   },
   {
     "type": "get",
-    "url": "/example2",
+    "url": "/isValidTime/:strInputTime/:boolInputSeconds/:boolInput24Hour",
     "title": "Check if the format is correct based on user settings",
     "name": "GetValidTime",
     "group": "HW2",
@@ -115,6 +122,13 @@
             "optional": false,
             "field": "boolInputSeconds",
             "description": "<p>Check if we include seconds or not</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "boolInput24Hour",
+            "description": "<p>Check if we want the format in 24 hours or not</p>"
           }
         ]
       }
