@@ -64,6 +64,14 @@
   }
   // split the string by hours, minute, seconds
   var arrTime = strTempInputTime.split(":");
+  
+  // check if the hours, minutes, and seconds are represented by 2 digits
+  for (var i = 0; arrTime.length; i++) {
+    if (arrTime[i].length != 2)
+    {
+      return null;
+    }
+  }
 
   // check if there are hours, minutes, and seconds
   if ( (boolInputSeconds && arrTime.length === 3) || (!boolInputSeconds && arrTime.length === 2) )
