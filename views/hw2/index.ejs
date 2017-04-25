@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-  <style type="text/css"> 
-  
+  <style type="text/css">
+
   fieldset {
     border: 2px solid #27a4c7;
     border-radius: 10px;
@@ -21,7 +21,7 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-  
+
   .switch {
 	  position: relative;
 	  display: inline-block;
@@ -105,7 +105,7 @@
     text-decoration: none;
     vertical-align: middle;
     margin-top: 5px;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 	}
   </style>
 
@@ -123,10 +123,17 @@
     <br>
     Format Guidelines:
     <br>
+    With 24 Hour format:
+    <br>
     Without Seconds: HH:MM | Example: <i>9:42</i>
     <br>
     With Seconds: HH:MM:SS | Example: <i>9:42:24</i>
     <br>
+    Without 24 Hour format:
+    <br>
+    Without Seconds: HH:MM AM/PM/am/pm | Example: <i>9:42 am</i>
+    <br>
+    With Seconds: HH:MM:SS AM/PM/am/pm | Example: <i>9:42:24 am</i>
     <br>
 
     <fieldset>
@@ -153,12 +160,12 @@
       <br>
       <strong><p id="resultDisplay"></p></strong>
     </fieldset>
-      
+
   </body>
   <script src="/hw2/hw2.js"></script>
   <script>
     // add event listener to validate button
-    
+
     document.getElementById("validateButton").addEventListener("click", validate);
 /*
   Function Name: validate

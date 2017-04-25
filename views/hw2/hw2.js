@@ -1,43 +1,45 @@
 
 /*
-  Function Name: formatTime
-  Group: dev
+Function Name: formatTime
+Group: dev
 
-  Function Description: helper method to split the input string into an array of the desired
-  format. If the input boolean is true, then we assume that the input time will include seconds,
-  and will be in the form HH:MM:SS. Else, it will be in the form HH:MM
+Function Description: helper method to split the input string into an array of the desired
+format. If the input boolean is true, then we assume that the input time will include seconds,
+and will be in the form HH:MM:SS. Else, it will be in the form HH:MM
 
-  Function Paramter:
-  String - strInputTime: input string to parse
-  bool - boolInputSeconds: boolean to see if we include seconds or not.
-  bool - boolInput24Hour: boolean to see if the user wants the format in 24 hours or not
+Function Paramter:
+String - strInputTime: input string to parse
+bool - boolInputSeconds: boolean to see if we include seconds or not.
+bool - boolInput24Hour: boolean to see if the user wants the format in 24 hours or not
 
-  Return:
-  OnSuccess: returns the parsed array to be used
-  OnFailure: returns null
-  */
+Return:
+OnSuccess: returns the parsed array to be used
+OnFailure: returns null
+*/
 
 /**
- *	@api {get} /formatTime/:strInputTime/:boolInputSeconds/:boolInput24Hour Split the time inputted by the user
- *	@apiName GetTime
- *	@apiGroup HW2
- *	
- *	@apiDescription helper method to split the input string into an array of the desired
- *  format. If the input boolean is true, then we assume that the input time will include seconds,
- *  and will be in the form HH:MM:SS. Else, it will be in the form HH:MM
- *
- *	@apiParam {String} strInputTime Input string to parse
- *  @apiParam {Boolean} boolInputSeconds Check if we include seconds or not
- *  @apiParam {Boolean} boolInput24Hour Check if we want the format in 24 hours or not
- *
- *	@apiSuccess {String[]} timeArray Array containing time in string
- *
- * 	@apiError IncorrectFormat The inputted format is incorrect
- */
- var formatTime = function formatTime(strInputTime, boolInputSeconds, boolInput24Hour) {
+*	@api {get} /formatTime/:strInputTime/:boolInputSeconds/:boolInput24Hour Split the time inputted by the user
+*	@apiName GetTime
+*	@apiGroup HW2
+*
+*	@apiDescription helper method to split the input string into an array of the desired
+*  format. If the input boolean is true, then we assume that the input time will include seconds,
+*  and will be in the form HH:MM:SS. Else, it will be in the form HH:MM
+*
+*	@apiParam {String} strInputTime Input string to parse
+*  @apiParam {Boolean} boolInputSeconds Check if we include seconds or not
+*  @apiParam {Boolean} boolInput24Hour Check if we want the format in 24 hours or not
+*
+*	@apiSuccess {String[]} timeArray Array containing time in string
+*
+* 	@apiError IncorrectFormat The inputted format is incorrect
+*/
+var formatTime = function formatTime(strInputTime, boolInputSeconds, boolInput24Hour) {
   var strTempInputTime = strInputTime;
 
   var arrAmPm = strInputTime.split(/ +/);
+
+  //If the input is not 24 hours
   if(!boolInput24Hour){
     //extract AMPM
     if(arrAmPm.length != 2 && arrAmPm.length != 3){
@@ -49,47 +51,46 @@
 
     if(!arrAmPm[1].match(/am/i) && !arrAmPm[1].match(/pm/i)){
       return null;
-    } 
+    }
     strTempInputTime = arrAmPm[0];
 
   }
   else{
-    //not 24 hour, check if contains ampm
-    if(arrAmPm.length>=3){
+    if(arrAmPm.length >= 3){
       return null;
     }
-    if(arrAmPm.length==2 && arrAmPm[1] != ""){
+    if(arrAmPm.length == 2 && arrAmPm[1] != ""){
       return null;
     }
   }
   // split the string by hours, minute, seconds
   var arrTime = strTempInputTime.split(":");
-  
+
   // no minutes were provided
   if (arrTime[1] === undefined) {
     return null;
   }
 
-  // if (!(typeof arrTime[0] === undefined)) {
-  //   console.log("Hours: " + arrTime[0] + " , length: " + arrTime[0].length);
-  //   if (arrTime[0].length != 2) {
-  //     return null;
-  //   }
-  // }
-  
-  // if (!(typeof arrTime[1] === undefined)) {
-  //   console.log("Minutes: " + arrTime[1] + " , length: " + arrTime[1].length);
-  //   if (arrTime[1].length != 2) {
-  //     return null;
-  //   }
-  // }
-  
-  // if (!(typeof arrTime[2] === undefined)) {
-  //   console.log("Seconds: " + arrTime[2] + " , length: " + arrTime[2].length);
-  //   if (arrTime[2].length != 2) {
-  //     return null;
-  //   }
-  // }
+  if (typeof arrTime[0] != undefined) {
+    //console.log("Hours: " + arrTime[0] + " , length: " + arrTime[0].length);
+    if (arrTime[0].length != 2) {
+      return null;
+    }
+  }
+
+  if (typeof arrTime[1] != undefined) {
+  //  console.log("Minutes: " + arrTime[1] + " , length: " + arrTime[1].length);
+    if (arrTime[1].length != 2) {
+      return null;
+    }
+  }
+
+  if (typeof arrTime[2] != undefined) {
+  //  console.log("Seconds: " + arrTime[2] + " , length: " + arrTime[2].length);
+    if (arrTime[2].length != 2) {
+      return null;
+    }
+  }
 
   // check if there are hours, minutes, and seconds
   if ( (boolInputSeconds && arrTime.length === 3) || (!boolInputSeconds && arrTime.length === 2) )
@@ -101,42 +102,42 @@
 }
 
 /*
-  Function Name: isValidTime
-  Group: dev
+Function Name: isValidTime
+Group: dev
 
-  Function Description: checks if input string is in the correct time form. If the input boolean
-  is true, then we expect that the input time will include seconds, and will be in the form
-  HH:MM:SS. Else, it will be in the form HH:MM.
+Function Description: checks if input string is in the correct time form. If the input boolean
+is true, then we expect that the input time will include seconds, and will be in the form
+HH:MM:SS. Else, it will be in the form HH:MM.
 
-  Function Paramter:
-  String - strInputTime: input string to parse
-  bool - boolInputSeconds: boolean to see if we include seconds or not.
-  bool - boolInput24Hour: boolean to see if the user wants the format in 24 hours or not
+Function Paramter:
+String - strInputTime: input string to parse
+bool - boolInputSeconds: boolean to see if we include seconds or not.
+bool - boolInput24Hour: boolean to see if the user wants the format in 24 hours or not
 
-  Return:
-  OnSuccess: returns true
-  OnFailure: returns false
-  OnError: returns false
-  */
+Return:
+OnSuccess: returns true
+OnFailure: returns false
+OnError: returns false
+*/
 
 /**
- *	@api {get} /isValidTime/:strInputTime/:boolInputSeconds/:boolInput24Hour Check if the format is correct based on user settings
- *	@apiName GetValidTime
- * 	@apiGroup HW2
- *
- *	@apiDescription checks if input string is in the correct time form. If the input boolean
- *  is true, then we expect that the input time will include seconds, and will be in the form
- *  HH:MM:SS. Else, it will be in the form HH:MM.
- *
- *	@apiParam {String} strInputTime Input string to parse
- *	@apiParam {Boolean} boolInputSeconds Check if we include seconds or not
- *  @apiParam {Boolean} boolInput24Hour Check if we want the format in 24 hours or not
- *
- *	@apiSuccess {Boolean} isValid Boolean that determines if the time is valid or not
- *
- *	@apiError IncorrectFormat The inputted format is incorrect
- */
- var isValidTime = function isValidTime(strInputTime, boolInputSeconds, boolInput24Hour) {
+*	@api {get} /isValidTime/:strInputTime/:boolInputSeconds/:boolInput24Hour Check if the format is correct based on user settings
+*	@apiName GetValidTime
+* 	@apiGroup HW2
+*
+*	@apiDescription checks if input string is in the correct time form. If the input boolean
+*  is true, then we expect that the input time will include seconds, and will be in the form
+*  HH:MM:SS. Else, it will be in the form HH:MM.
+*
+*	@apiParam {String} strInputTime Input string to parse
+*	@apiParam {Boolean} boolInputSeconds Check if we include seconds or not
+*  @apiParam {Boolean} boolInput24Hour Check if we want the format in 24 hours or not
+*
+*	@apiSuccess {Boolean} isValid Boolean that determines if the time is valid or not
+*
+*	@apiError IncorrectFormat The inputted format is incorrect
+*/
+var isValidTime = function isValidTime(strInputTime, boolInputSeconds, boolInput24Hour) {
 
   // store the formatted input
   var arrTime = formatTime(strInputTime, boolInputSeconds, boolInput24Hour);
@@ -169,7 +170,6 @@
     if (numMinutes < 0 || numMinutes > 59) {
       return false;
     }
-
   }
 
   //24 hour time
