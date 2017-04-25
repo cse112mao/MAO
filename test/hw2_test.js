@@ -77,57 +77,57 @@ describe('hw2_test.js', function() {
     /*
     * 24 hour tests
     */
-    it("should return false when strInputTime = '22' and boolInputSeconds = false", function() {
+    it("Expects: false from isValidTime('22', false, true)", function() {
       var time = hw2_test.isValidTime('22', false, true);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '-22:22:22' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('-22:22:22', true, true)", function() {
       var time = hw2_test.isValidTime('-22:22:22', true, true);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '22:-22:22' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('22:-22:22', true, true)", function() {
       var time = hw2_test.isValidTime('22:-22:22', true, true);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '22:22:-22' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('22:22:-22', true, true)", function() {
       var time = hw2_test.isValidTime('22:22:-22', true, true);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '24:59:59' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('22:59:59', true, true)", function() {
       var time = hw2_test.isValidTime('24:59:59', true, true);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '23:60:59' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('22:60:59', true, true)", function() {
       var time = hw2_test.isValidTime('23:60:59', true, true);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '23:59:60' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('22:59:60', true, true)", function() {
       var time = hw2_test.isValidTime('23:59:60', true, true);
       assert.equal(false, time);
     });
 
-    it("should return true when strInputTime = '23:59:59' and boolInputSeconds = true", function() {
+    it("Expects: true from isValidTime('22:59:59', true, true)", function() {
       var time = hw2_test.isValidTime('23:59:59', true, true);
       assert.equal(true, time);
     });
 
-    it("should return true when strInputTime = '00:00:00' and boolInputSeconds = true", function() {
+    it("Expects: true from isValidTime('00:00:00', true, true)", function() {
       var time = hw2_test.isValidTime('00:00:00', true, true);
       assert.equal(true, time);
     });
 
-    it("should return false when strInputTime = '00:as:00' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('00:as:00', true, true)", function() {
       var time = hw2_test.isValidTime('00:as:00', true, true);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '00000002:000010:000' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('00000002:000010:000', true, true)", function() {
       var time = hw2_test.isValidTime('00000002:000010:000', true, true);
       assert.equal(false, time);
     });
@@ -135,32 +135,32 @@ describe('hw2_test.js', function() {
     /*
     * 12 hour tests
     */
-    it("should return false when strInputTime = '23:59:59 PM' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('23:59:59 PM', true, false)", function() {
       var time = hw2_test.isValidTime('23:59:59 PM', true, false);
       assert.equal(false, time);
     });
 
-    it("should return false when strInputTime = '11:59:59' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('11:59:59', true, false)", function() {
       var time = hw2_test.isValidTime('11:59:59', true, false);
       assert.equal(false, time);
     });
 
-    it("should return true when strInputTime = '11:59:59 PM' and bo for olInputSeconds = true", function() {
+    it("Expects: true from isValidTime('11:59:59 PM', true, false)", function() {
       var time = hw2_test.isValidTime('11:59:59 PM', true, false);
       assert.equal(true, time);
     });
 
-    it("should return true when strInputTime = '11:59:59 AM' and boolInputSeconds = true", function() {
+    it("Expects: true from isValidTime('11:59:59 AM', true, false)", function() {
       var time = hw2_test.isValidTime('11:59:59 AM', true, false);
       assert.equal(true, time);
     });
 
-    it("should return false when strInputTime = '11:59:59 Pm and boolInputSeconds = true", function() {
+    it("Expects: true from isValidTime('11:59:59 Pm', true, false)", function() {
       var time = hw2_test.isValidTime('11:59:59 Pm', true, false);
       assert.equal(true, time);
     });
 
-    it("should return false when strInputTime = '0000011:59:59 PM' and boolInputSeconds = true", function() {
+    it("Expects: false from isValidTime('0000011:59:59 PM', true, false)", function() {
       var time = hw2_test.isValidTime('0000011:59:59 PM', true, false);
       assert.equal(false, time);
     });
