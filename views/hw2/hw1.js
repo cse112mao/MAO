@@ -1,5 +1,5 @@
 /**
- *	@api {get} /foo Testing Foo
+ *	@api {get} /foo/:bar Testing Foo
  *	@apiName GetFoo
  * 	@apiGroup HW1
  *
