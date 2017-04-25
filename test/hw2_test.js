@@ -10,9 +10,9 @@ describe('hw2_test.js', function() {
   	/*
   	 * 24 hour tests
   	 */
-    it("should return ['22','22'] when strInputTime = '22:22' and boolInputSeconds = true", function() {
+    it("should return ['22','22'] when strInputTime = '22:22' and boolInputSeconds = false", function() {
       var time = hw2_test.formatTime('22:22', false, true);
-      var expected_time = ['22','22'];
+      var expected_time = ['22','22 PM'];
       assert.deepEqual(expected_time, time);
     });
     
