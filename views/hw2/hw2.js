@@ -47,7 +47,7 @@
       return null;
     }
 
-    if(!(arrAmPm[1] == "am") && !(arrAmPm[1] == "pm") && !(arrAmPm[1] == "AM") && !(arrAmPm[1] == "PM")){
+    if(!(arrAmPm[1].toUpperCase() == "am") && !(arrAmPm[1].toUpperCase() == "pm")){
       return null;
     } 
     strTempInputTime = arrAmPm[0];
