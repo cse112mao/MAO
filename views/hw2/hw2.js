@@ -14,7 +14,7 @@
   Return:
   OnSuccess: returns the parsed array to be used
   OnFailure: returns null
-*/
+  */
 
 /**
  *	@api {get} /example Split the time inputted by the user
@@ -32,9 +32,27 @@
  *
  * 	@apiError IncorrectFormat The inputted format is incorrect
  */
-var formatTime = function formatTime(strInputTime, boolInputSeconds) {
+ var formatTime = function formatTime(strInputTime, boolInputSeconds, boolUse12Hr) {
+  var strTempInputTime = strInputTime;
+
+  if(boolUse12Hr){
+    //extract AMPM
+    var arrAmPm = strInputTime.split(/ +/);
+    if(arrAmPm.length != 2 && arrAmPm.length != 3){
+      return null;
+    }
+    if(arrAmPm.length == 3 && arrAmPm[2] != ""){
+      return null;
+    }
+
+    if(!arrAmPm[1].match(/am/i) && !arrAmPm[1].match(/pm/i)){
+      return null;
+    } 
+    strTempInputTime = arrAmPm[0];
+
+  }
   // split the string by hours, minute, seconds
-  var arrTime = strInputTime.split(":");
+  var arrTime = strTempInputTime.split(":");
 
   // check if there are hours, minutes, and seconds
   if ( (boolInputSeconds && arrTime.length === 3) || (!boolInputSeconds && arrTime.length === 2) )
@@ -61,7 +79,7 @@ var formatTime = function formatTime(strInputTime, boolInputSeconds) {
   OnSuccess: returns true
   OnFailure: returns false
   OnError: returns false
-*/
+  */
 
 /**
  *	@api {get} /example2 Check if the format is correct based on user settings
@@ -79,9 +97,10 @@ var formatTime = function formatTime(strInputTime, boolInputSeconds) {
  *
  *	@apiError IncorrectFormat The inputted format is incorrect
  */
-var isValidTime = function isValidTime(strInputTime, boolInputSeconds) {
+ var isValidTime = function isValidTime(strInputTime, boolInputSeconds, boolUse12Hr) {
+
   // store the formatted input
-  var arrTime = formatTime(strInputTime, boolInputSeconds);
+  var arrTime = formatTime(strInputTime, boolInputSeconds, boolUse12Hr);
 
   // check to see if input was incorrect
   if (arrTime === null)
@@ -94,19 +113,42 @@ var isValidTime = function isValidTime(strInputTime, boolInputSeconds) {
   if (isNaN(numHours)) {
     return false;
   }
-  // check if the hours are between [0, 23]
-  if (arrTime[0] < 0 || arrTime[0] >= 24) {
-    return false;
+
+  //12 hour time
+  if(boolUse12Hr){
+    // check if the hours are between [0, 12]
+    if (arrTime[0] < 0 || arrTime[0] > 12) {
+      return false;
+    }
+
+    var numMinutes = arrTime[1];
+    // verify input is a number
+    if (isNaN(numMinutes)) {
+      return false;
+    }
+    // check if the minutes are between [0, 59]
+    if (numMinutes < 0 || numMinutes > 59) {
+      return false;
+    }
+
   }
 
-  var numMinutes = arrTime[1];
-  // verify input is a number
-  if (isNaN(numMinutes)) {
-    return false;
-  }
-  // check if the minutes are between [0, 59]
-  if (numMinutes < 0 || numMinutes > 59) {
-    return false;
+  //24 hour time
+  else{
+    // check if the hours are between [0, 23]
+    if (arrTime[0] < 0 || arrTime[0] >= 24) {
+      return false;
+    }
+
+    var numMinutes = arrTime[1];
+    // verify input is a number
+    if (isNaN(numMinutes)) {
+      return false;
+    }
+    // check if the minutes are between [0, 59]
+    if (numMinutes < 0 || numMinutes > 59) {
+      return false;
+    }
   }
 
   // array size should be 3 if boolInputSeconds == true
