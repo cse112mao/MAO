@@ -134,17 +134,21 @@
       <br>
       <br>
 	    Include seconds?
-	    &nbsp;
 	    <label class="switch">
 		    <input type="checkbox" id="inputSeconds">
 		    <div class="slider round"></div>
-		  </label>
-		  &nbsp;
+        </label>
+      <br>
+      <br>
+	    24 Hour format?
+	    <label class="switch">
+		    <input type="checkbox" id="input24Hour">
+		    <div class="slider round"></div>
+        </label>
+      <br>
+      <br>
 	    Input Time:
 	    <input type="text" name="time" value="" id="inputTime">
-      &nbsp;
-      &nbsp;
-      &nbsp;
 	    <button class="button" id="validateButton">Validate</button>
       <br>
       <strong><p id="resultDisplay"></p></strong>
@@ -175,9 +179,10 @@
         // get input time and input if user wants seconds to be displayed
         var strInputTime = document.getElementById("inputTime").value;
         var boolInputSeconds = document.getElementById("inputSeconds").checked;
+        var boolInput24Hour = document.getElementById("input24Hour").checked;
         console.log(strInputTime);
         // validate the time by calling backend function
-        var boolValidTime = isValidTime(strInputTime, boolInputSeconds);
+        var boolValidTime = isValidTime(strInputTime, boolInputSeconds, boolInput24Hour);
         // if valid time, change text to notify user
         if (boolValidTime == true) {
           document.getElementById("resultDisplay").innerHTML = "Result: Valid time format!";

@@ -32,10 +32,10 @@
  *
  * 	@apiError IncorrectFormat The inputted format is incorrect
  */
- var formatTime = function formatTime(strInputTime, boolInputSeconds, boolUse12Hr) {
+ var formatTime = function formatTime(strInputTime, boolInputSeconds, boolInput24Hour) {
   var strTempInputTime = strInputTime;
 
-  if(boolUse12Hr){
+  if(!boolInput24Hour){
     //extract AMPM
     var arrAmPm = strInputTime.split(/ +/);
     if(arrAmPm.length != 2 && arrAmPm.length != 3){
@@ -97,10 +97,10 @@
  *
  *	@apiError IncorrectFormat The inputted format is incorrect
  */
- var isValidTime = function isValidTime(strInputTime, boolInputSeconds, boolUse12Hr) {
+ var isValidTime = function isValidTime(strInputTime, boolInputSeconds, boolInput24Hour) {
 
   // store the formatted input
-  var arrTime = formatTime(strInputTime, boolInputSeconds, boolUse12Hr);
+  var arrTime = formatTime(strInputTime, boolInputSeconds, boolInput24Hour);
 
   // check to see if input was incorrect
   if (arrTime === null)
@@ -115,7 +115,7 @@
   }
 
   //12 hour time
-  if(boolUse12Hr){
+  if(!boolInput24Hour){
     // check if the hours are between [0, 12]
     if (arrTime[0] < 0 || arrTime[0] > 12) {
       return false;
