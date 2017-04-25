@@ -17,6 +17,12 @@ gulp.task('lint', function () {
 gulp.task('mocha', () =>
    gulp.src('test/*.js', {read: false})
       .pipe(mocha({reporter: 'spec'}))
+      .once('error', () => {
+        process.exit(1);
+      })
+      .once('end', () => {
+        process.exit();
+      })
 );
 
 /**
