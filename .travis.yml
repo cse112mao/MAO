@@ -12,3 +12,5 @@ deploy:
   app: maoproj
   on:
     repo: cse112mao/MAO
+notifications:
+  slack: cse112maospring2017:XksgdUr6VwPdJQ38LUBViS19
