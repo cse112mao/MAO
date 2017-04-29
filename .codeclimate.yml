@@ -26,3 +26,5 @@ ratings:
   - "**.rb"
 exclude_paths:
 - test/
+- doc/
+- bin/
