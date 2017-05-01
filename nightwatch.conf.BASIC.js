@@ -1,6 +1,9 @@
 const SCREENSHOT_PATH = "./screenshots/";
 const BINPATH = './node_modules/nightwatch/bin/';
 
+// Travis CI for e2e tests
+const TRAVIS_JOB_NUMBER = process.env.TRAVIS_JOB_NUMBER;
+
 // we use a nightwatch.conf.js file so we can include comments and helper functions
 module.exports = {
   "src_folders": [
@@ -18,6 +21,9 @@ module.exports = {
   },
   "test_settings": {
     "default": {
+      "launch_url": "http://ondemand.saucelabs.com:80",
+      "username" : process.env.SAUCE_USERNAME,     
+      "access_key" : process.env.SAUCE_ACCESS_KEY,
       "screenshots": {
         "enabled": true, // if you want to keep screenshots
         "path": './screenshots' // save screenshots here
@@ -26,7 +32,9 @@ module.exports = {
         "waitForConditionTimeout": 5000 // sometimes internet is slow so wait.
       },
       "desiredCapabilities": { // use Chrome as the default browser for tests
-        "browserName": "chrome"
+        "browserName": "chrome",
+        "build": `build-${TRAVIS_JOB_NUMBER}`,
+        "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
     },
     "chrome": {

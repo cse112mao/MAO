@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha"
+    "test": "mocha test/unit_tests/*",
+    "e2e": "node_modules/.bin/nightwatch --config nightwatch.conf.BASIC.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -22,6 +23,7 @@
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
+    "gulp-nightwatch": "^0.3.2",
     "nightwatch": "^0.9.14",
     "selenium-download": "^2.0.10"
   }

@@ -15,7 +15,7 @@ gulp.task('lint', function () {
 * Run Mocha Tests
 **/
 gulp.task('mocha', () =>
-   gulp.src('test/mocha/*.js', {read: false})
+   gulp.src('test/unit_tests/*.js', {read: false})
       .pipe(mocha({reporter: 'spec'}))
       .once('error', () => {
         process.exit(1);
@@ -24,6 +24,13 @@ gulp.task('mocha', () =>
         process.exit();
       })
 );
+
+gulp.task('nightwatch', function() {
+  return gulp.src('test/nightwatch/*.js')
+    .pipe(nightwatch({
+      configFile: 'test/nightwatch.conf.BASIC.js'
+    }));
+});
 
 /**
 * Run documentation generator
