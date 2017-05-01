@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
    jshint = require('gulp-jshint'),
     apidoc = require('gulp-apidoc'),
+    nightwatch = require('gulp-nightwatch')
     mocha = require('gulp-mocha');
 
 /**
@@ -28,7 +29,7 @@ gulp.task('mocha', () =>
 gulp.task('nightwatch', function() {
   return gulp.src('test/nightwatch/*.js')
     .pipe(nightwatch({
-      configFile: 'test/nightwatch.conf.BASIC.js'
+      configFile: 'nightwatch.conf.BASIC.js'
     }));
 });
 
