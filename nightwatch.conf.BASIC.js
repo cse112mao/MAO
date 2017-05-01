@@ -22,8 +22,8 @@ module.exports = {
   "test_settings": {
     "default": {
       "launch_url": "http://ondemand.saucelabs.com:80",
-      "username" : process.env.SAUCE_USERNAME,     
-      "access_key" : process.env.SAUCE_ACCESS_KEY,
+      //"username" : process.env.SAUCE_USERNAME,     
+      //"access_key" : process.env.SAUCE_ACCESS_KEY,
       "screenshots": {
         "enabled": true, // if you want to keep screenshots
         "path": './screenshots' // save screenshots here
