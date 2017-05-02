@@ -38,7 +38,7 @@ module.exports = {
       },
       "desiredCapabilities": { // use Chrome as the default browser for tests
         "browserName": "chrome",
-        "build": `build-${TRAVIS_JOB_NUMBER}`,
+        "build": 'build-${TRAVIS_JOB_NUMBER}',
         "tunnel-identifier": TRAVIS_JOB_NUMBER
       }
     },
