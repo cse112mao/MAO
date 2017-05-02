@@ -9,7 +9,9 @@ before_script:
   - npm install -g nightwatch
 script: gulp
 addons:
-  sauce_connect: true
+  sauce_connect:
+        username: "jonahcruz97"
+        access_key: "cd5b76ab-6615-44b7-a9e2-1628de37e6e3"
 deploy:
   skip-cleanup: true
   provider: heroku
