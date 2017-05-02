@@ -1,5 +1,5 @@
-//export SAUCE_USERNAME="jonahcruz97";
-//export SAUCE_USERNAME="cd5b76ab-6615-44b7-a9e2-1628de37e6e3";
+process.env['SAUCE_USERNAME']= 'jonahcruz97';
+process.env['SAUCE_ACCES_KEY']="cd5b76ab-6615-44b7-a9e2-1628de37e6e3";
 const SCREENSHOT_PATH = "./screenshots/";
 const BINPATH = './node_modules/nightwatch/bin/';
 
