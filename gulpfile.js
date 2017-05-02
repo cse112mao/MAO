@@ -29,7 +29,7 @@ gulp.task('mocha', () =>
 /*
 * Run Nightwatch e2e tests
 **/
-gulp.task('nightwatch', () =>
+/*gulp.task('nightwatch', () =>
   gulp.src('test/nightwatch/*.js', {read: false})
     .pipe(nightwatch({configFile: 'nightwatch.conf.BASIC.js'}))
     .once('error', () => {
@@ -38,7 +38,7 @@ gulp.task('nightwatch', () =>
     .once('end', () => {
       process.exit();
     })
-);
+);*/
 
 /**
 * Run documentation generator
@@ -50,4 +50,4 @@ gulp.task('apidoc', function(done){
    }, done);
 });
 
-gulp.task('default', ['nightwatch', 'lint', 'mocha', 'apidoc']);
+gulp.task('default', ['lint', 'mocha', 'apidoc']);

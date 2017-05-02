@@ -6,7 +6,9 @@ before_script:
   - node nightwatch.conf.BASIC.js
   - python -m SimpleHTTPServer &
   - sleep 2
-script: gulp
+script: 
+  - npm run e2e
+  - gulp
 addons:
   sauce_connect:
         username: "jonahcruz97"
