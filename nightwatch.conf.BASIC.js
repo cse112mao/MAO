@@ -23,8 +23,11 @@ module.exports = {
   },
   "test_settings": {
     "default": {
-      "launch_url": "http://ondemand.saucelabs.com:80",
-      "username" : "jonahcruz97",     
+      "launch_url": 'http://ondemand.saucelabs.com:80',
+      "selenium_port": 80,
+      "selenium_host": "ondemand.saucelabs.com",
+      "silent": true,
+      "username" : "jonahcruz97",
       "access_key" : "cd5b76ab-6615-44b7-a9e2-1628de37e6e3",
       "screenshots": {
         "enabled": true, // if you want to keep screenshots
