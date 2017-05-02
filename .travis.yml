@@ -4,11 +4,10 @@ node_js:
 before_script:
   - npm install -g gulp
   - node nightwatch.conf.BASIC.js
+  - npm install -g jdk
   - python -m SimpleHTTPServer &
   - sleep 2
-script: 
-  - npm run e2e
-  - gulp
+script: gulp
 addons:
   sauce_connect:
         username: "jonahcruz97"
