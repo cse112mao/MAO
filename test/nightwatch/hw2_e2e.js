@@ -1,7 +1,7 @@
 var config = require('../../nightwatch.conf.BASIC.js');
 
 module.exports = {
-  'Super Time Validator - Startup Test': function(browser) {
+  'Super Time Validator - Smoke Test': function(browser) {
     browser
       .url('http://maoproj.herokuapp.com/')
       .waitForElementVisible('body')

@@ -26,8 +26,11 @@ gulp.task('mocha', () =>
       })
 );
 
+/*
+* Run Nightwatch e2e tests
+**/
 gulp.task('nightwatch', function() {
-  return gulp.src('test/nightwatch/*.js')
+  gulp.src('test/nightwatch/*.js', {read: false})
     .pipe(nightwatch({
       configFile: 'nightwatch.conf.BASIC.js'
     }));
@@ -43,4 +46,4 @@ gulp.task('apidoc', function(done){
    }, done);
 });
 
-gulp.task('default', ['lint', 'mocha', 'apidoc']);
+gulp.task('default', ['lint', 'mocha', 'nightwatch', 'apidoc']);
