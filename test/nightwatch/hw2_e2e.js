@@ -9,7 +9,7 @@ module.exports = {
       .assert.visible('#inputTime')
       .assert.visible('#validateButton')
       .assert.visible('.switch')
-      .assert.visible('#resultDisplay')
+      .assert.hidden('#resultDisplay')
       .saveScreenshot('screenshots/super_time_validator.png')
       .end();
   }
