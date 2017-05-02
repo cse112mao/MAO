@@ -3,6 +3,7 @@ node_js:
   - '6'
 before_script:
   - npm install -g gulp
+  - node nightwatch.conf.BASIC.js
   - python -m SimpleHTTPServer &
   - sleep 2
 script: gulp
