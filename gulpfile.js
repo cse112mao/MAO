@@ -21,20 +21,24 @@ gulp.task('mocha', () =>
       .once('error', () => {
         process.exit(1);
       })
-      .once('end', () => {
-        process.exit();
-      })
+      //.once('end', () => {
+      //  process.exit();
+      //})
 );
 
 /*
 * Run Nightwatch e2e tests
 **/
-gulp.task('nightwatch', function() {
+gulp.task('nightwatch', () =>
   gulp.src('test/nightwatch/*.js', {read: false})
-    .pipe(nightwatch({
-      configFile: 'nightwatch.conf.BASIC.js'
-    }));
-});
+    .pipe(nightwatch({configFile: 'nightwatch.conf.BASIC.js'}))
+    .once('error', () => {
+      process.exit(1);
+    })
+    .once('end', () => {
+      process.exit();
+    })
+);
 
 /**
 * Run documentation generator
