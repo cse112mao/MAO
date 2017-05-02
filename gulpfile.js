@@ -46,4 +46,4 @@ gulp.task('apidoc', function(done){
    }, done);
 });
 
-gulp.task('default', ['lint', 'mocha', 'nightwatch', 'apidoc']);
+gulp.task('default', ['nightwatch', 'lint', 'mocha', 'apidoc']);
