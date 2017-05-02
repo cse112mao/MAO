@@ -5,9 +5,9 @@
 
   <testsuite name="hw2_e2e"
     errors="0" failures="0" hostname="" id="" package="hw2_e2e" skipped="0"
-    tests="1" time="5.633" timestamp="Mon, 01 May 2017 20:42:22 GMT">
+    tests="1" time="5.649" timestamp="Tue, 02 May 2017 05:11:17 GMT">
   
-    <testcase name="Super Time Validator - Startup Test" classname="hw2_e2e" time="5.633" assertions="6">
+    <testcase name="Super Time Validator - Startup Test" classname="hw2_e2e" time="5.649" assertions="6">
 
     
 

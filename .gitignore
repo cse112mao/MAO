@@ -3,6 +3,12 @@ logs
 *.log
 npm-debug.log*
 
+# Nightwatch Screenshots
+screenshots
+
+# Reports
+reports
+
 # Runtime data
 pids
 *.pid
