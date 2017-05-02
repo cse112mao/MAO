@@ -1,9 +1,6 @@
-language: java
-jdk:
-  - oraclejdk8
+language: node_js
 node_js:
   - '6'
-install: 'npm install'
 before_script:
   - npm install -g gulp
   - node nightwatch.conf.BASIC.js
