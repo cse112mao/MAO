@@ -4,7 +4,7 @@ node_js:
 before_script:
   - npm install -g gulp
   - node nightwatch.conf.BASIC.js
-  - npm install -g jdk
+  - oracle-java8-installer
   - python -m SimpleHTTPServer &
   - sleep 2
 script: gulp
@@ -12,6 +12,9 @@ addons:
   sauce_connect:
         username: "jonahcruz97"
         access_key: "cd5b76ab-6615-44b7-a9e2-1628de37e6e3"
+  apt:
+    packages:
+      - oracle-java8-set-default
 deploy:
   skip-cleanup: true
   provider: heroku
