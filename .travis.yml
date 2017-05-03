@@ -4,7 +4,6 @@ node_js:
 before_script:
   - npm install -g gulp
   - node nightwatch.conf.BASIC.js
-  - oracle-java8-installer
   - python -m SimpleHTTPServer &
   - sleep 2
 script: gulp
