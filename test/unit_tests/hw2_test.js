@@ -3,7 +3,7 @@
 */
 
 var assert = require('assert');
-var hw2_test = require("../views/hw2/hw2.js");
+var hw2_test = require("../../views/hw2/hw2.js");
 
 describe('hw2_test.js', function() {
   describe('#formatTime(strInputTime, boolInputSeconds, boolInput24Hour)', function() {

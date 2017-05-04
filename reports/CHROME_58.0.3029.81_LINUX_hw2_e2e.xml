@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="hw2_e2e"
+    errors="0" failures="0" hostname="" id="" package="hw2_e2e" skipped="0"
+    tests="1" time="6.243" timestamp="Tue, 02 May 2017 05:21:37 GMT">
+  
+    <testcase name="Super Time Validator - Startup Test" classname="hw2_e2e" time="6.243" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

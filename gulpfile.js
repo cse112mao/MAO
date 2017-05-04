@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
    jshint = require('gulp-jshint'),
     apidoc = require('gulp-apidoc'),
+    nightwatch = require('gulp-nightwatch')
     mocha = require('gulp-mocha');
 
 /**
@@ -15,14 +16,28 @@ gulp.task('lint', function () {
 * Run Mocha Tests
 **/
 gulp.task('mocha', () =>
-   gulp.src('test/*.js', {read: false})
+   gulp.src('test/unit_tests/*.js', {read: false})
       .pipe(mocha({reporter: 'spec'}))
       .once('error', () => {
         process.exit(1);
       })
-      .once('end', () => {
-        process.exit();
-      })
+      //.once('end', () => {
+      //  process.exit();
+      //})
+);
+
+/*
+* Run Nightwatch e2e tests
+**/
+gulp.task('nightwatch', () =>
+  gulp.src('test/nightwatch/*.js', {read: false})
+    .pipe(nightwatch({configFile: 'nightwatch.conf.BASIC.js'}))
+    .once('error', () => {
+      process.exit(1);
+    })
+    .once('end', () => {
+      process.exit();
+    })
 );
 
 /**
@@ -35,4 +50,4 @@ gulp.task('apidoc', function(done){
    }, done);
 });
 
-gulp.task('default', ['lint', 'mocha', 'apidoc']);
+gulp.task('default', ['nightwatch', 'lint', 'mocha', 'apidoc']);

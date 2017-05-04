@@ -1,5 +1,5 @@
 var assert = require('assert');
-var hw1_test = require("../views/hw2/hw1.js");
+var hw1_test = require("../../views/hw2/hw1.js");
 
 describe('hw1_test.js', function() {
   describe('#foo(bar)', function() {
